@@ -15,6 +15,7 @@ public class User {
     private boolean active;
     private boolean elite;
 
+    
     public User(String navn, String email, String phonenumber, String ID, ArrayList<String> yearsPaid, int birthdate, int memberSince, boolean coach, boolean active, boolean elite) {
         this.navn = navn;
         this.email = email;
