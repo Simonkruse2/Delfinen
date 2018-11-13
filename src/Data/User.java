@@ -1,30 +1,31 @@
-
 package Data;
 
 import java.util.ArrayList;
 
 public class User {
- 
-   private String navn;
-   private String email;
-   private String phonenumber;
-   private String ID;
-   private ArrayList<User> yearsPaid = new ArrayList<>();
-   private int birthdate;
-   private int memberSince;
-   private boolean admin;
-   private boolean cashier;
-   private boolean coach;
-   private boolean active;
-   private boolean elite;
 
-    public User(String navn, String email, String phonenumber, String ID, int birthdate, int memberSince) {
+    private String navn;
+    private String email;
+    private String phonenumber;
+    private String ID;
+    private ArrayList<String> yearsPaid = new ArrayList<>();
+    private int birthdate;
+    private int memberSince;
+    private boolean coach;
+    private boolean active;
+    private boolean elite;
+
+    public User(String navn, String email, String phonenumber, String ID, ArrayList<String> yearsPaid, int birthdate, int memberSince, boolean coach, boolean active, boolean elite) {
         this.navn = navn;
         this.email = email;
         this.phonenumber = phonenumber;
         this.ID = ID;
+        this.yearsPaid = yearsPaid;
         this.birthdate = birthdate;
         this.memberSince = memberSince;
+        this.coach = coach;
+        this.active = active;
+        this.elite = elite;
     }
 
     public String getNavn() {
@@ -43,7 +44,7 @@ public class User {
         return ID;
     }
 
-    public ArrayList<User> getYearsPaid() {
+    public ArrayList<String> getYearsPaid() {
         return yearsPaid;
     }
 
@@ -53,14 +54,6 @@ public class User {
 
     public int getMemberSince() {
         return memberSince;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public boolean isCashier() {
-        return cashier;
     }
 
     public boolean isCoach() {
@@ -74,5 +67,5 @@ public class User {
     public boolean isElite() {
         return elite;
     }
-    
+
 }
