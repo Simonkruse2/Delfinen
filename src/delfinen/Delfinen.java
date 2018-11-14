@@ -5,6 +5,10 @@
  */
 package delfinen;
 
+import Data.DataHandling;
+import Data.Filehandling;
+import Data.User;
+
 /**
  *
  * @author simon
@@ -16,7 +20,13 @@ public class Delfinen {
      */
     public static void main(String[] args) {
          System.out.println("Tunnelsnakes rule!");
-
+         Filehandling f = new Filehandling();
+         User u = new User("a", "a", "a", "a", 201291, 99, false, true, true);
+         DataHandling d = new DataHandling();
+         d.addUser();
+         f.writeObject(d.getJuniorElite());
+         System.out.println(f.readObject());
+         
     }
-    
+  
 }
