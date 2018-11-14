@@ -9,6 +9,7 @@ public class DataHandling {
     public void addUser(User user) {
         members.add(user);
     }
+    
 
     public void removeUser(User user) {
         members.remove(user);
