@@ -15,6 +15,5 @@ public class PriceCalculator {
                 price = 1600.0 * 0.75;
             }
             return price;
-
     }
 }
