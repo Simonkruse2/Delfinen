@@ -1,81 +1,97 @@
 package Data;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class User implements Serializable {
 
-    private String navn;
-    private String email;
+    private int ID;
+    private String name;
+    private String birthdate;
     private String phonenumber;
-    private String ID;
-   // private ArrayList<String> yearsPaid = new ArrayList<>();
-    private int birthdate;
-    private int memberSince;
-    private boolean coach;
-    private boolean active;
+    private String email;
     private boolean elite;
+    private boolean active;
+    private boolean coach;
+    private String memberSince;
+    private String discipline;
 
     @Override
     public String toString() {
-        return   navn + "," + email + "," + phonenumber
-                 + "," + ID + "," + birthdate + "," + memberSince
-                 + "," + coach + "," + active + "," + elite + "," + "\n";
+        return   ID + "," + name + "," + birthdate
+                 + "," + phonenumber + "," + email + "," + memberSince
+                 + "," + elite + "," + coach + "," + active + "\n";
     }
 
-
-    
-    public User(String navn, String email, String phonenumber, String ID, int birthdate, int memberSince, boolean coach, boolean active, boolean elite) {
-        this.navn = navn;
-        this.email = email;
-        this.phonenumber = phonenumber;
+    public User(int ID, String name, String birthdate, String phonenumber, 
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
         this.ID = ID;
-   //     this.yearsPaid = yearsPaid;
+        this.name = name;
         this.birthdate = birthdate;
-        this.memberSince = memberSince;
-        this.coach = coach;
-        this.active = active;
+        this.phonenumber = phonenumber;
+        this.email = email;
         this.elite = elite;
+        this.active = active;
+        this.coach = coach;
+        this.memberSince = memberSince;
+        this.discipline = discipline;
     }
 
-    public String getNavn() {
-        return navn;
+  
+
+    public int getID() {
+        return ID;
     }
 
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
     }
 
     public String getPhonenumber() {
         return phonenumber;
     }
 
-    public String getID() {
-        return ID;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNavn(String navn) {
-        this.navn = navn;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public boolean isElite() {
+        return elite;
+    }
+
+    public boolean isCoach() {
+        return coach;
+    }
+
+    public String getMemberSince() {
+        return memberSince;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 
-    public void setBirthdate(int birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public void setMemberSince(int memberSince) {
-        this.memberSince = memberSince;
-    }
-
-    public void setCoach(boolean coach) {
-        this.coach = coach;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setActive(boolean active) {
@@ -86,28 +102,13 @@ public class User implements Serializable {
         this.elite = elite;
     }
 
-//    public ArrayList<String> getYearsPaid() {
-//        return yearsPaid;
-//    }
-
-    public int getBirthdate() {
-        return birthdate;
+    public void setCoach(boolean coach) {
+        this.coach = coach;
     }
 
-    public int getMemberSince() {
-        return memberSince;
+    public void setMemberSince(String memberSince) {
+        this.memberSince = memberSince;
     }
 
-    public boolean isCoach() {
-        return coach;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public boolean isElite() {
-        return elite;
-    }
 
 }
