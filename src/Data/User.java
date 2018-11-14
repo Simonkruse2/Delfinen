@@ -54,6 +54,38 @@ public class User implements Serializable {
         return ID;
     }
 
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public void setBirthdate(int birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public void setMemberSince(int memberSince) {
+        this.memberSince = memberSince;
+    }
+
+    public void setCoach(boolean coach) {
+        this.coach = coach;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setElite(boolean elite) {
+        this.elite = elite;
+    }
+
 //    public ArrayList<String> getYearsPaid() {
 //        return yearsPaid;
 //    }
