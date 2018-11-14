@@ -4,15 +4,24 @@ import java.util.ArrayList;
 
 public class DataHandling {
 
-    ArrayList<User> JuniorElite = new ArrayList<>();
-    
+    ArrayList<User> members = new ArrayList<>();
 
-    public void addUser() {
-        User u = new User("a", "a", "a", "a", 201291, 99, false, true, true);
-        JuniorElite.add(u);
-        System.out.println("Brugeren er tilføjet, yo");
+    public void addUser(User user) {
+        members.add(user);
     }
-    
+
+    public void removeUser(User user) {
+        members.remove(user);
+    }
+
+    public ArrayList<User> getMembers() {
+        return members;
+    }
+
+    public void setMembers(ArrayList<User> members) {
+        this.members = members;
+    }
+}
 //    
 //    public void removeOrder(){
 //        try{
@@ -37,8 +46,3 @@ public class DataHandling {
 //    public ArrayList<Integer> getOrders(){
 //        return orderList;
 //    }
-
-    public ArrayList<User> getJuniorElite() {
-        return JuniorElite;
-    }
-}
