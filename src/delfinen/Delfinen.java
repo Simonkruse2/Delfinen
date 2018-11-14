@@ -37,7 +37,8 @@ public class Delfinen {
          d.addUser(u5);
          d.addUser(u6);
          d.addUser(u7);
-         f.writeObject(d.getJuniorElite());
+         d.removeUser(u1);
+         d.removeUser(u);
+         f.writeObject(d.getMembers());
     }
-  
 }
