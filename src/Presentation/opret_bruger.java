@@ -4,17 +4,21 @@
  * and open the template in the editor.
  */
 package Presentation;
+
 import Data.User;
 import Data.DataHandling;
 import Data.Filehandling;
 import java.time.LocalDate;
+
 /**
  *
  * @author Renz
  */
 public class opret_bruger extends javax.swing.JFrame {
+
     DataHandling d = new DataHandling();
     Filehandling f = new Filehandling();
+
     /**
      * Creates new form opret_bruger
      */
@@ -66,6 +70,11 @@ public class opret_bruger extends javax.swing.JFrame {
         jButton2.setText("Rediger bruger");
 
         jButton3.setText("Slet bruger");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Navn");
 
@@ -202,17 +211,18 @@ public class opret_bruger extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        
+
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        
+
         String str = (String) this.jComboBox2.getSelectedItem();
-        
+
         if (str.equals("konkurrencesvømmer")) {
             this.jLabel7.setVisible(true);
             this.jComboBox3.setVisible(true);
-        }if(str.equals("motionist")){
+        }
+        if (str.equals("motionist")) {
             this.jLabel7.setVisible(false);
             this.jComboBox3.setVisible(false);
         }
@@ -222,9 +232,8 @@ public class opret_bruger extends javax.swing.JFrame {
         String str_status = this.jComboBox1.getSelectedItem().toString();
         String str_elite = this.jComboBox2.getSelectedItem().toString();
         String str_discipline = this.jComboBox3.getSelectedItem().toString();
-              
-        
-        int ID = d.getMembers().size()+1;
+
+        int ID = d.getMembers().size() + 1;
         String name = Name.getText();
         String birthdate = Birthdate.getText();
         String phonenumber = Phonenumber.getText();
@@ -233,9 +242,9 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean active = "active".equalsIgnoreCase(str_status);
         boolean coach = jCheckBox1.isSelected();
         String memberSince = LocalDate.now().toString();
-        
+
         User user;
-        if(elite){
+        if (elite) {
             user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, email, str_discipline);
         } else {
             user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, LocalDate.now().toString(), null);
@@ -248,6 +257,11 @@ public class opret_bruger extends javax.swing.JFrame {
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BirthdateActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new slet_bruger().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,7 +294,7 @@ public class opret_bruger extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new opret_bruger().setVisible(true);
-                
+
             }
         });
     }
