@@ -24,7 +24,7 @@ public class opret_bruger extends javax.swing.JFrame {
      */
     public opret_bruger() {
         initComponents();
-        this.jComboBox3.setVisible(false);
+        this.svømmedisciplin.setVisible(false);
         this.jLabel7.setVisible(false);
     }
 
@@ -49,12 +49,12 @@ public class opret_bruger extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         Email = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        Status = new javax.swing.JComboBox<>();
+        Coach = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        Aktivitetsform = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        svømmedisciplin = new javax.swing.JComboBox<>();
         OpretBruger = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
@@ -92,25 +92,25 @@ public class opret_bruger extends javax.swing.JFrame {
 
         jLabel5.setText("Status");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktiv", "passiv" }));
+        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktiv", "passiv" }));
 
-        jCheckBox1.setText("Træner");
+        Coach.setText("Træner");
 
         jLabel6.setText("Aktivitetsform");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vælg aktivitetsform", "motionist", "konkurrencesvømmer" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        Aktivitetsform.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vælg aktivitetsform", "motionist", "konkurrencesvømmer" }));
+        Aktivitetsform.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                AktivitetsformActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Svømmedisciplin");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vælg svømmedisciplin", "Butterfly", "Crawl", "Rygcrawl", "Brystsvømning" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        svømmedisciplin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vælg svømmedisciplin", "Butterfly", "Crawl", "Rygcrawl", "Brystsvømning" }));
+        svømmedisciplin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                svømmedisciplinActionPerformed(evt);
             }
         });
 
@@ -133,12 +133,12 @@ public class opret_bruger extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Aktivitetsform, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Birthdate, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(svømmedisciplin, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Phonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(OpretBruger, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,8 +146,8 @@ public class opret_bruger extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1)))
+                            .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Coach)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
@@ -186,17 +186,17 @@ public class opret_bruger extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Aktivitetsform, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(svømmedisciplin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
-                .addComponent(jCheckBox1)
+                .addComponent(Coach)
                 .addGap(0, 0, 0)
                 .addComponent(OpretBruger)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -210,48 +210,50 @@ public class opret_bruger extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void svømmedisciplinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svømmedisciplinActionPerformed
 
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_svømmedisciplinActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void AktivitetsformActionPerformed(java.awt.event.ActionEvent evt) {
 
-        String str = (String) this.jComboBox2.getSelectedItem();
-
+        String str = (String) this.Aktivitetsform.getSelectedItem();
         if (str.equals("konkurrencesvømmer")) {
             this.jLabel7.setVisible(true);
-            this.jComboBox3.setVisible(true);
-        }
-        if (str.equals("motionist")) {
             this.jLabel7.setVisible(false);
-            this.jComboBox3.setVisible(false);
+            this.svømmedisciplin.setVisible(false);
         }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }
 
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
-        String str_status = this.jComboBox1.getSelectedItem().toString();
-        String str_elite = this.jComboBox2.getSelectedItem().toString();
-        String str_discipline = this.jComboBox3.getSelectedItem().toString();
+        this.svømmedisciplin.setVisible(true);
+        String str = (String) this.Aktivitetsform.getSelectedItem();
 
-        int ID = d.getMembers().size() + 1;
-        String name = Name.getText();
-        String birthdate = Birthdate.getText();
-        String phonenumber = Phonenumber.getText();
-        String email = Email.getText();
-        boolean elite = "elite".equalsIgnoreCase(str_elite);
-        boolean active = "active".equalsIgnoreCase(str_status);
-        boolean coach = jCheckBox1.isSelected();
-        String memberSince = LocalDate.now().toString();
+        if (str.equals("motionist")) {
+            String name = Name.getText();
+            String birthdate = Birthdate.getText();
+            String phonenumber = Phonenumber.getText();
+            String email = Email.getText();
+            String str_status = this.Status.getSelectedItem().toString();
+            String str_elite = this.Aktivitetsform.getSelectedItem().toString();
+            boolean elite = "elite".equalsIgnoreCase(str_elite);
+            boolean active = "active".equalsIgnoreCase(str_status);
+            boolean coach = Coach.isSelected();
+            String memberSince = LocalDate.now().toString();
 
-        User user;
-        if (elite) {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, email, str_discipline);
-        } else {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, LocalDate.now().toString(), null);
+            String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
+
+            int ID = d.getMembers().size() + 1;
+
+            User user;
+            if (elite) {
+                user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, email, str_discipline);
+            } else {
+                user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, LocalDate.now().toString(), null);
+            }
+            d.addUser(user);
+            System.out.println(user);
+            f.writeObject(d.getMembers());
         }
-        d.addUser(user);
-        System.out.println(user);
-        f.writeObject(d.getMembers());
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed
@@ -300,19 +302,18 @@ public class opret_bruger extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Aktivitetsform;
     private javax.swing.JTextField Birthdate;
+    private javax.swing.JCheckBox Coach;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Name;
     private javax.swing.JButton OpretBruger;
     private javax.swing.JTextField Phonenumber;
+    private javax.swing.JComboBox<String> Status;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -320,5 +321,6 @@ public class opret_bruger extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JComboBox<String> svømmedisciplin;
     // End of variables declaration//GEN-END:variables
 }
