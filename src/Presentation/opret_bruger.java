@@ -242,7 +242,7 @@ public class opret_bruger extends javax.swing.JFrame {
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
         String str_status = this.Status.getSelectedItem().toString();
         String str_elite = this.Aktivitetsform.getSelectedItem().toString();
-        String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
+        String discipline = this.svømmedisciplin.getSelectedItem().toString();
 
         int ID = ++count;
         String name = Name.getText();
@@ -253,8 +253,8 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean active = "active".equalsIgnoreCase(str_status);
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
-        
-        c.opretBruger();
+       
+        c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed
