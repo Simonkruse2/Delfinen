@@ -13,15 +13,15 @@ import java.util.ArrayList;
 public class Filehandling {
 
     public static final boolean DEBUG = true;
-    String inFilename = "C:\\Users\\robin\\Desktop\\delfin_opgaven\\Delfinen\\members.txt";
-    String outFilename = "C:\\Users\\robin\\Desktop\\delfin_opgaven\\Delfinen\\members.txt";
+    String inFilename = "members.txt";
+    String outFilename = "members.txt";
 
     public void writeObject(ArrayList<User> members) {
         ObjectOutputStream out = null;
+        FileOutputStream fout = null;
         try {
-            System.out.println(members);
-            File file = new File(outFilename);
-            out = new ObjectOutputStream(new FileOutputStream(file));
+            fout = new FileOutputStream(inFilename, true);
+            out = new ObjectOutputStream(fout);
             out.writeObject(members);
             out.flush();
         } catch (FileNotFoundException ex) {
