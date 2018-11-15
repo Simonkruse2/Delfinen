@@ -18,6 +18,8 @@ public class opret_bruger extends javax.swing.JFrame {
 
     DataHandling d = new DataHandling();
     Filehandling f = new Filehandling();
+    private static int count = 0;
+    
 
     /**
      * Creates new form opret_bruger
@@ -233,7 +235,7 @@ public class opret_bruger extends javax.swing.JFrame {
         String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
         
         
-        int ID = d.getMembers().size()+1;
+        int ID = ++count;
         String name = Name.getText();
         String birthdate = Birthdate.getText();
         String phonenumber = Phonenumber.getText();
@@ -245,10 +247,13 @@ public class opret_bruger extends javax.swing.JFrame {
         
         User user;
         if(elite){
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, email, str_discipline);
+            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, str_discipline);
         } else {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, LocalDate.now().toString(), null);
+            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
         }
+        d.addUser(user);
+        System.out.println(user);
+        f.writeObject(d.getMembers());
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed
