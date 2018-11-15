@@ -211,48 +211,43 @@ public class opret_bruger extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void svømmedisciplinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svømmedisciplinActionPerformed
-
+        
     }//GEN-LAST:event_svømmedisciplinActionPerformed
 
-    private void AktivitetsformActionPerformed(java.awt.event.ActionEvent evt) {
-
+    private void AktivitetsformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AktivitetsformActionPerformed
+        
         String str = (String) this.Aktivitetsform.getSelectedItem();
+        
         if (str.equals("konkurrencesvømmer")) {
             this.jLabel7.setVisible(true);
+            this.svømmedisciplin.setVisible(true);
+        }if(str.equals("motionist")){
             this.jLabel7.setVisible(false);
             this.svømmedisciplin.setVisible(false);
         }
-    }
+    }//GEN-LAST:event_AktivitetsformActionPerformed
 
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
-        this.svømmedisciplin.setVisible(true);
-        String str = (String) this.Aktivitetsform.getSelectedItem();
-
-        if (str.equals("motionist")) {
-            String name = Name.getText();
-            String birthdate = Birthdate.getText();
-            String phonenumber = Phonenumber.getText();
-            String email = Email.getText();
-            String str_status = this.Status.getSelectedItem().toString();
-            String str_elite = this.Aktivitetsform.getSelectedItem().toString();
-            boolean elite = "elite".equalsIgnoreCase(str_elite);
-            boolean active = "active".equalsIgnoreCase(str_status);
-            boolean coach = Coach.isSelected();
-            String memberSince = LocalDate.now().toString();
-
-            String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
-
-            int ID = d.getMembers().size() + 1;
-
-            User user;
-            if (elite) {
-                user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, email, str_discipline);
-            } else {
-                user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, LocalDate.now().toString(), null);
-            }
-            d.addUser(user);
-            System.out.println(user);
-            f.writeObject(d.getMembers());
+        String str_status = this.Status.getSelectedItem().toString();
+        String str_elite = this.Aktivitetsform.getSelectedItem().toString();
+        String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
+        
+        
+        int ID = d.getMembers().size()+1;
+        String name = Name.getText();
+        String birthdate = Birthdate.getText();
+        String phonenumber = Phonenumber.getText();
+        String email = Email.getText();
+        boolean elite = "elite".equalsIgnoreCase(str_elite);
+        boolean active = "active".equalsIgnoreCase(str_status);
+        boolean coach = Coach.isSelected();
+        String memberSince = LocalDate.now().toString();
+        
+        User user;
+        if(elite){
+            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, email, str_discipline);
+        } else {
+            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, LocalDate.now().toString(), null);
         }
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
