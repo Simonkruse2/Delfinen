@@ -74,6 +74,10 @@ public class User implements Serializable {
         return memberSince;
     }
 
+    public String getDiscipline() {
+        return discipline;
+    }
+
     public void setID(int ID) {
         this.ID = ID;
     }
