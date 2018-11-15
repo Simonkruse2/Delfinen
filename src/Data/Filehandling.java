@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class Filehandling {
 
     public static final boolean DEBUG = true;
-    String inFilename = "C:\\Users\\robin\\Desktop\\delfin_opgaven\\Delfinen\\members.txt";
-    String outFilename = "C:\\Users\\robin\\Desktop\\delfin_opgaven\\Delfinen\\members.txt";
+    String inFilename = "members.txt";
+    String outFilename = "members.txt";
 
     public void writeObject(ArrayList<User> members) {
         ObjectOutputStream out = null;
