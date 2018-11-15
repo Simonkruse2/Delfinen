@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 public interface Controller {
 
-    public void opretBruger();
+    public void opretBruger(int ID, String name, String birthdate, String phonenumber, 
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline);
  
     public ArrayList<User> readMemberList();
     
