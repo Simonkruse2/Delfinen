@@ -19,7 +19,6 @@ public class opret_bruger extends javax.swing.JFrame {
     DataHandling d = new DataHandling();
     Filehandling f = new Filehandling();
     private static int count = 0;
-    
 
     /**
      * Creates new form opret_bruger
@@ -70,6 +69,11 @@ public class opret_bruger extends javax.swing.JFrame {
         });
 
         jButton2.setText("Rediger bruger");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Slet bruger");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +128,11 @@ public class opret_bruger extends javax.swing.JFrame {
         });
 
         jButton5.setText("Forside");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,7 +141,7 @@ public class opret_bruger extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(113, 113, 113)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel6)
                             .addComponent(Aktivitetsform, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,7 +151,6 @@ public class opret_bruger extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(svømmedisciplin, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Phonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(OpretBruger, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
@@ -158,7 +166,10 @@ public class opret_bruger extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(OpretBruger, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -199,9 +210,9 @@ public class opret_bruger extends javax.swing.JFrame {
                 .addComponent(svømmedisciplin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(Coach)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(OpretBruger)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,17 +224,18 @@ public class opret_bruger extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void svømmedisciplinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_svømmedisciplinActionPerformed
-        
+
     }//GEN-LAST:event_svømmedisciplinActionPerformed
 
     private void AktivitetsformActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AktivitetsformActionPerformed
-        
+
         String str = (String) this.Aktivitetsform.getSelectedItem();
-        
+
         if (str.equals("konkurrencesvømmer")) {
             this.jLabel7.setVisible(true);
             this.svømmedisciplin.setVisible(true);
-        }if(str.equals("motionist")){
+        }
+        if (str.equals("motionist")) {
             this.jLabel7.setVisible(false);
             this.svømmedisciplin.setVisible(false);
         }
@@ -233,8 +245,7 @@ public class opret_bruger extends javax.swing.JFrame {
         String str_status = this.Status.getSelectedItem().toString();
         String str_elite = this.Aktivitetsform.getSelectedItem().toString();
         String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
-        
-        
+
         int ID = ++count;
         String name = Name.getText();
         String birthdate = Birthdate.getText();
@@ -244,9 +255,9 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean active = "active".equalsIgnoreCase(str_status);
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
-        
+
         User user;
-        if(elite){
+        if (elite) {
             user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, str_discipline);
         } else {
             user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
@@ -264,6 +275,15 @@ public class opret_bruger extends javax.swing.JFrame {
         new slet_bruger().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new rediger_bruger().setVisible(true);
+        this.setVisible(false);    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+            new forside().setVisible(true);
+            this.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
