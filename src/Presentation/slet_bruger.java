@@ -45,7 +45,7 @@ public class slet_bruger extends javax.swing.JFrame {
             model.addRow(rowData);
 
         }
-
+        
     }
 
     /**
