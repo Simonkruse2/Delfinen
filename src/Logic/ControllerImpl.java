@@ -12,13 +12,14 @@ public class ControllerImpl implements Controller {
     private Filehandling f = new Filehandling();
     private User user;
     @Override
-    public void opretBruger(int ID, String name, String birthdate, String phonenumber, 
-            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
-        this.user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+    public void opretBruger() {
+
         if (user.isElite()) {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+            user = new User(user.getID(), user.getName(), user.getBirthdate(), user.getPhonenumber(), 
+                   user.getEmail(), user.isElite(), user.isActive(), user.isCoach(),user.getMemberSince(), user.getDiscipline());
         } else {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
+            user = new User(user.getID(), user.getName(), user.getBirthdate(), user.getPhonenumber(), 
+                   user.getEmail(), user.isElite(), user.isActive(), user.isCoach(),user.getMemberSince(), null);
         }
         d.addUser(user);
         f.writeObject(d.getMembers());
