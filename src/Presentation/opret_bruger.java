@@ -5,7 +5,7 @@
  */
 package Presentation;
 
-import Data.User;
+import Logic.ControllerImpl;
 import Data.DataHandling;
 import Data.Filehandling;
 import java.time.LocalDate;
@@ -16,8 +16,7 @@ import java.time.LocalDate;
  */
 public class opret_bruger extends javax.swing.JFrame {
 
-    DataHandling d = new DataHandling();
-    Filehandling f = new Filehandling();
+    ControllerImpl c = new ControllerImpl();
     private static int count = 0;
 
     /**
@@ -242,7 +241,7 @@ public class opret_bruger extends javax.swing.JFrame {
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
         String str_status = this.Status.getSelectedItem().toString();
         String str_elite = this.Aktivitetsform.getSelectedItem().toString();
-        String str_discipline = this.svømmedisciplin.getSelectedItem().toString();
+        String discipline = this.svømmedisciplin.getSelectedItem().toString();
 
         int ID = ++count;
         String name = Name.getText();
@@ -254,15 +253,7 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
 
-        User user;
-        if (elite) {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, str_discipline);
-        } else {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
-        }
-        d.addUser(user);
-        System.out.println(user);
-        f.writeObject(d.getMembers());
+        c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed
@@ -279,8 +270,8 @@ public class opret_bruger extends javax.swing.JFrame {
         this.setVisible(false);    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-            new forside().setVisible(true);
-            this.setVisible(false);
+        new forside().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
