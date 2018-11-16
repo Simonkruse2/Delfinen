@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class DataHandling {
 
-    ArrayList<User> members = new ArrayList<>();
+    //Flyttes til medlemscontroller
+    private ArrayList<User> members = new ArrayList<>();
 
     public void addUser(User user) {
         members.add(user);
     }
-    
 
     public void removeUser(User user) {
         members.remove(user);
@@ -17,10 +17,6 @@ public class DataHandling {
 
     public ArrayList<User> getMembers() {
         return members;
-    }
-
-    public void setMembers(ArrayList<User> members) {
-        this.members = members;
     }
 }
 //    
