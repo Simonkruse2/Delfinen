@@ -16,7 +16,6 @@ import java.time.LocalDate;
  */
 public class opret_bruger extends javax.swing.JFrame {
     ControllerImpl c;
-    private static int count = 0;
     private final DataHandling d;
 
     /**
@@ -251,7 +250,6 @@ public class opret_bruger extends javax.swing.JFrame {
             discipline = null;
         }
         
-        int ID = ++count;
         String name = Name.getText();
         String birthdate = Birthdate.getText();
         String phonenumber = Phonenumber.getText();
@@ -261,7 +259,7 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
        
-        c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+        c.opretBruger(c.readMemberList().size()+1, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed

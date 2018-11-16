@@ -37,7 +37,9 @@ public class User implements Serializable {
         this.discipline = discipline;
     }
 
-  
+    public void setDiscipline(String discipline) {
+        this.discipline = discipline;
+    }
 
     public int getID() {
         return ID;
