@@ -40,4 +40,13 @@ public class ControllerImpl implements Controller {
     public ArrayList<User> readMemberList() {
        return f.readObject();
     }
+
+    @Override
+    public ArrayList<User> memberList() {
+        ArrayList<User> list = new ArrayList<>();
+        for(int i = 0; i < f.readObject().size(); i++){
+            list.add(f.readObject().get(i));
+        }
+        return list;
+    }
 }
