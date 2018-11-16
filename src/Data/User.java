@@ -15,14 +15,15 @@ public class User implements Serializable {
     private String memberSince;
     private String discipline;
 
+    
     @Override
     public String toString() {
-        return ID + "," + name + "," + birthdate
-                + "," + phonenumber + "," + email + "," + memberSince
-                + "," + elite + "," + coach + "," + active + "\n";
+        return   ID + "," + name + "," + birthdate
+                 + "," + phonenumber + "," + email + "," + memberSince
+                 + "," + elite + "," + coach + "," + active + "\n";
     }
 
-    public User(int ID, String name, String birthdate, String phonenumber,
+    public User(int ID, String name, String birthdate, String phonenumber, 
             String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
         this.ID = ID;
         this.name = name;
@@ -35,6 +36,8 @@ public class User implements Serializable {
         this.memberSince = memberSince;
         this.discipline = discipline;
     }
+
+  
 
     public int getID() {
         return ID;
@@ -111,5 +114,6 @@ public class User implements Serializable {
     public void setMemberSince(String memberSince) {
         this.memberSince = memberSince;
     }
+
 
 }

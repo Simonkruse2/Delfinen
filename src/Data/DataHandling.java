@@ -6,6 +6,11 @@ public class DataHandling {
 
     //Flyttes til medlemscontroller
     private ArrayList<User> members = new ArrayList<>();
+    
+    public DataHandling(){
+        Filehandling f = new Filehandling();
+        members = f.readObject();
+    }
 
     public void addUser(User user) {
         members.add(user);

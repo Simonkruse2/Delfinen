@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.DataHandling;
 import Data.User;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -16,35 +17,38 @@ import javax.swing.table.DefaultTableModel;
 import Logic.ControllerImpl;
 public class slet_bruger extends javax.swing.JFrame {
 
-    ControllerImpl c = new ControllerImpl();
+    ControllerImpl c;
+    private final DataHandling d;
 
     /**
      * Creates new form slet_bruger
      */
-    public slet_bruger() {
+    public slet_bruger(DataHandling d) {
         initComponents();
+        this.d = d;
+        c = new ControllerImpl(d);
         addRowToJTable();
-
     }
 
     public void addRowToJTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
         Object rowData[] = new Object[10];
-        for (int i = 0; i < c.memberList().size(); i++) {
-            rowData[0] = c.memberList().get(i).getID();
-            rowData[1] = c.memberList().get(i).getName();
-            rowData[2] = c.memberList().get(i).getBirthdate();
-            rowData[3] = c.memberList().get(i).getPhonenumber();
-            rowData[4] = c.memberList().get(i).getEmail();
-            rowData[5] = c.memberList().get(i).isElite();
-            rowData[6] = c.memberList().get(i).isActive();
-            rowData[7] = c.memberList().get(i).isCoach();
-            rowData[8] = c.memberList().get(i).getMemberSince();
-            rowData[9] = c.memberList().get(i).getDiscipline();
+        for (int i = 0; i < c.readMemberList().size(); i++) {
+            rowData[0] = c.readMemberList().get(i).getID();
+            rowData[1] = c.readMemberList().get(i).getName();
+            rowData[2] = c.readMemberList().get(i).getBirthdate();
+            rowData[3] = c.readMemberList().get(i).getPhonenumber();
+            rowData[4] = c.readMemberList().get(i).getEmail();
+            rowData[5] = c.readMemberList().get(i).isElite();
+            rowData[6] = c.readMemberList().get(i).isActive();
+            rowData[7] = c.readMemberList().get(i).isCoach();
+            rowData[8] = c.readMemberList().get(i).getMemberSince();
+            rowData[9] = c.readMemberList().get(i).getDiscipline();
             model.addRow(rowData);
 
         }
-        
+
     }
 
     /**
@@ -130,13 +134,6 @@ public class slet_bruger extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(1082, 1082, 1082))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,16 +158,20 @@ public class slet_bruger extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -183,18 +184,17 @@ public class slet_bruger extends javax.swing.JFrame {
 
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new slet_bruger().setVisible(true);
+        new slet_bruger(d).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        new opret_bruger().setVisible(true);
+        new opret_bruger(d).setVisible(true);
         this.setVisible(false);
-    
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new rediger_bruger().setVisible(true);
+        new rediger_bruger(d).setVisible(true);
         this.setVisible(false);    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -204,55 +204,14 @@ public class slet_bruger extends javax.swing.JFrame {
     private void sletBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sletBrugerActionPerformed
         int ID = Integer.parseInt(jTextField1.getText());
         c.sletBruger(ID);
+        addRowToJTable();
     }//GEN-LAST:event_sletBrugerActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new forside().setVisible(true);
+        new forside(d).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(slet_bruger.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(slet_bruger.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(slet_bruger.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(slet_bruger.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new slet_bruger().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton4;

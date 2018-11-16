@@ -20,7 +20,7 @@ public class Filehandling {
         ObjectOutputStream out = null;
         FileOutputStream fout = null;
         try {
-            fout = new FileOutputStream(inFilename, true);
+            fout = new FileOutputStream(inFilename);
             out = new ObjectOutputStream(fout);
             out.writeObject(members);
             out.flush();
@@ -44,12 +44,16 @@ public class Filehandling {
     }
 
     public ArrayList<User> readObject() {
-        ObjectInputStream in = null;
+        ArrayList<User> recordList = new ArrayList<>();
+        ObjectInputStream objectinputstream = null;
         try {
-            File file = new File(outFilename);
-            in = new ObjectInputStream(new FileInputStream(file));
-            ArrayList members = (ArrayList<User>) in.readObject();
+            
+            FileInputStream file = new FileInputStream(outFilename);
+            objectinputstream = new ObjectInputStream(file);
+            ArrayList members =(ArrayList<User>) objectinputstream.readObject();
+            
             return members;
+            
         } catch (FileNotFoundException ex) {
             if (DEBUG) {
                 ex.printStackTrace();
@@ -64,7 +68,7 @@ public class Filehandling {
             }
         } finally {
             try {
-                in.close();
+                objectinputstream.close();
             } catch (IOException ex) {
                 if (DEBUG) {
                     ex.printStackTrace();

@@ -7,19 +7,22 @@ import Data.Filehandling;
 import java.util.ArrayList;
 public class ControllerImpl implements Controller {
 
-    private ArrayList<User> list = new ArrayList<>();
-    private DataHandling d = new DataHandling();
+//    private ArrayList<User> list = new ArrayList<>();
     private Filehandling f = new Filehandling();
-    private User user;
-    @Override
-    public void opretBruger() {
+    private final DataHandling d;
 
+    public ControllerImpl(DataHandling d) {
+        this.d = d;
+    }
+
+    @Override
+    public void opretBruger(int ID, String name, String birthdate, String phonenumber, 
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
+        User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
         if (user.isElite()) {
-            user = new User(user.getID(), user.getName(), user.getBirthdate(), user.getPhonenumber(), 
-                   user.getEmail(), user.isElite(), user.isActive(), user.isCoach(),user.getMemberSince(), user.getDiscipline());
+            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
         } else {
-            user = new User(user.getID(), user.getName(), user.getBirthdate(), user.getPhonenumber(), 
-                   user.getEmail(), user.isElite(), user.isActive(), user.isCoach(),user.getMemberSince(), null);
+            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
         }
         d.addUser(user);
         f.writeObject(d.getMembers());
@@ -28,26 +31,18 @@ public class ControllerImpl implements Controller {
 
     @Override
     public void sletBruger(int ID) {
-        for (int i = 0; i < list.size(); i++) {
-            Object get = list.get(i).getID();
-            if (list.get(i).getID() == ID) {
-                list.remove(i);
+        for (int i = 0; i < d.getMembers().size(); i++) {
+            Object get = d.getMembers().get(i).getID();
+            if (d.getMembers().get(i).getID() == ID) {
+                d.getMembers().remove(i);
+                break;
             }
-            f.writeObject(list);
         }
+        f.writeObject(d.getMembers());
     }
 
     @Override
     public ArrayList<User> readMemberList() {
        return f.readObject();
-    }
-
-    @Override
-    public ArrayList<User> memberList() {
-        ArrayList<User> list = new ArrayList<>();
-        for(int i = 0; i < f.readObject().size(); i++){
-            list.add(f.readObject().get(i));
-        }
-        return list;
     }
 }
