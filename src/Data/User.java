@@ -14,6 +14,7 @@ public class User implements Serializable {
     private boolean coach;
     private String memberSince;
     private String discipline;
+    private static int count;
 
     
     @Override
@@ -35,6 +36,7 @@ public class User implements Serializable {
         this.coach = coach;
         this.memberSince = memberSince;
         this.discipline = discipline;
+        count = count ++;
     }
 
   
