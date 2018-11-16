@@ -30,17 +30,17 @@ public class slet_bruger extends javax.swing.JFrame {
     public void addRowToJTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[10];
-        for (int i = 0; i < c.readMemberList().size(); i++) {
-            rowData[0] = c.readMemberList().get(i).getID();
-            rowData[1] = c.readMemberList().get(i).getName();
-            rowData[2] = c.readMemberList().get(i).getBirthdate();
-            rowData[3] = c.readMemberList().get(i).getPhonenumber();
-            rowData[4] = c.readMemberList().get(i).getEmail();
-            rowData[5] = c.readMemberList().get(i).isElite();
-            rowData[6] = c.readMemberList().get(i).isActive();
-            rowData[7] = c.readMemberList().get(i).isCoach();
-            rowData[8] = c.readMemberList().get(i).getMemberSince();
-            rowData[9] = c.readMemberList().get(i).getDiscipline();
+        for (int i = 0; i < c.memberList().size(); i++) {
+            rowData[0] = c.memberList().get(i).getID();
+            rowData[1] = c.memberList().get(i).getName();
+            rowData[2] = c.memberList().get(i).getBirthdate();
+            rowData[3] = c.memberList().get(i).getPhonenumber();
+            rowData[4] = c.memberList().get(i).getEmail();
+            rowData[5] = c.memberList().get(i).isElite();
+            rowData[6] = c.memberList().get(i).isActive();
+            rowData[7] = c.memberList().get(i).isCoach();
+            rowData[8] = c.memberList().get(i).getMemberSince();
+            rowData[9] = c.memberList().get(i).getDiscipline();
             model.addRow(rowData);
 
         }
