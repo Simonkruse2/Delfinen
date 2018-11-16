@@ -8,6 +8,7 @@ package delfinen;
 import Data.DataHandling;
 import Data.Filehandling;
 import Data.User;
+import Logic.ControllerImpl;
 import Presentation.GUI;
 
 /**
@@ -21,6 +22,11 @@ public class Delfinen {
      */
     public static void main(String[] args) {
         new GUI().setVisible(true);
+//        ControllerImpl c = new ControllerImpl();
+//        for (int i = 0; i < c.readMemberList().size(); i++) {
+//            System.out.println(c.readMemberList().size());
+//        System.out.println(c.readMemberList());
+//        }
 //        Filehandling f = new Filehandling();
 //         User u = new User("b", "b", "b", "b", 201291, 99, false, true, true);
 //         User u1 = new User("b1", "b", "b", "b", 201291, 99, false, true, true);
