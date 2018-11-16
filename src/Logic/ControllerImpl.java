@@ -19,11 +19,11 @@ public class ControllerImpl implements Controller {
     public void opretBruger(int ID, String name, String birthdate, String phonenumber, 
             String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
         User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
-        if (user.isElite()) {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
-        } else {
-            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
-        }
+//        if (user.isElite()) {
+//            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+//        } else {
+//            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
+//        }
         d.addUser(user);
         f.writeObject(d.getMembers());
     }

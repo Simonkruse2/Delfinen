@@ -161,7 +161,7 @@ public class opret_bruger extends javax.swing.JFrame {
                             .addComponent(Coach)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,8 +212,8 @@ public class opret_bruger extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(Coach)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OpretBruger)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addComponent(OpretBruger, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -245,8 +245,12 @@ public class opret_bruger extends javax.swing.JFrame {
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
         String str_status = this.Status.getSelectedItem().toString();
         String str_elite = this.Aktivitetsform.getSelectedItem().toString();
-        String discipline = this.svømmedisciplin.getSelectedItem().toString();
-
+        String discipline = null;
+        discipline = this.svømmedisciplin.getSelectedItem().toString();
+        if(this.svømmedisciplin.getSelectedItem().toString().equalsIgnoreCase("vælg svømmedisciplin")){
+            discipline = null;
+        }
+        
         int ID = ++count;
         String name = Name.getText();
         String birthdate = Birthdate.getText();

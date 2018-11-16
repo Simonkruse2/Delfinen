@@ -44,7 +44,6 @@ public class Filehandling {
     }
 
     public ArrayList<User> readObject() {
-        ArrayList<User> recordList = new ArrayList<>();
         ObjectInputStream objectinputstream = null;
         try {
             
