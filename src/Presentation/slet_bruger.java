@@ -29,19 +29,18 @@ public class slet_bruger extends javax.swing.JFrame {
 
     public void addRowToJTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        ArrayList<User> list = c.readMemberList();
         Object rowData[] = new Object[10];
-        for (int i = 0; i < list.size(); i++) {
-            rowData[0] = list.get(i).getID();
-            rowData[1] = list.get(i).getName();
-            rowData[2] = list.get(i).getBirthdate();
-            rowData[3] = list.get(i).getPhonenumber();
-            rowData[4] = list.get(i).getEmail();
-            rowData[5] = list.get(i).isElite();
-            rowData[6] = list.get(i).isActive();
-            rowData[7] = list.get(i).isCoach();
-            rowData[8] = list.get(i).getMemberSince();
-            rowData[9] = list.get(i).getDiscipline();
+        for (int i = 0; i < c.readMemberList().size(); i++) {
+            rowData[0] = c.readMemberList().get(i).getID();
+            rowData[1] = c.readMemberList().get(i).getName();
+            rowData[2] = c.readMemberList().get(i).getBirthdate();
+            rowData[3] = c.readMemberList().get(i).getPhonenumber();
+            rowData[4] = c.readMemberList().get(i).getEmail();
+            rowData[5] = c.readMemberList().get(i).isElite();
+            rowData[6] = c.readMemberList().get(i).isActive();
+            rowData[7] = c.readMemberList().get(i).isCoach();
+            rowData[8] = c.readMemberList().get(i).getMemberSince();
+            rowData[9] = c.readMemberList().get(i).getDiscipline();
             model.addRow(rowData);
 
         }
