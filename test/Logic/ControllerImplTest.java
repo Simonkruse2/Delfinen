@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import Data.DataHandling;
 import Data.User;
 import java.util.ArrayList;
 import org.junit.After;
@@ -13,13 +14,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
  * @author jacobfolkehildebrandt
  */
 public class ControllerImplTest {
-    
+    DataHandling d = new DataHandling();
+    ControllerImpl instance = new ControllerImpl(d);
     public ControllerImplTest() {
     }
     
@@ -42,23 +45,24 @@ public class ControllerImplTest {
     /**
      * Test of opretBruger method, of class ControllerImpl.
      */
+    @Ignore
     @Test
     public void testOpretBruger() {
         System.out.println("opretBruger");
         int ID = 0;
-        String name = "";
-        String birthdate = "";
-        String phonenumber = "";
-        String email = "";
+        String name = "Jacob";
+        String birthdate = "100194";
+        String phonenumber = "21461869";
+        String email = "jacobfolke@hotmail.com";
         boolean elite = false;
         boolean active = false;
         boolean coach = false;
-        String memberSince = "";
-        String discipline = "";
-        ControllerImpl instance = null;
+        String memberSince = "2018-11-16";
+        String discipline = null;
+        
         instance.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -67,20 +71,38 @@ public class ControllerImplTest {
     @Test
     public void testSletBruger() {
         System.out.println("sletBruger");
-        int ID = 0;
-        ControllerImpl instance = null;
+        int ID = 100;
+        
+        ArrayList<User> before = instance.readMemberList();
+        System.out.println(before.size());
         instance.sletBruger(ID);
+        ArrayList<User> after = instance.readMemberList();
+        System.out.println(after.size());
+        assertEquals(before.size()-1, after.size());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ID = 100;
+        String name = "Jacob";
+        String birthdate = "100194";
+        String phonenumber = "21461869";
+        String email = "jacobfolke@hotmail.com";
+        boolean elite = false;
+        boolean active = false;
+        boolean coach = false;
+        String memberSince = "2018-11-16";
+        String discipline = null;
+        
+        instance.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
     }
 
     /**
      * Test of readMemberList method, of class ControllerImpl.
      */
+    @Ignore
     @Test
     public void testReadMemberList() {
         System.out.println("readMemberList");
-        ControllerImpl instance = null;
+        
         ArrayList<User> expResult = null;
         ArrayList<User> result = instance.readMemberList();
         assertEquals(expResult, result);
