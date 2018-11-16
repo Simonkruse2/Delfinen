@@ -15,6 +15,7 @@ import java.time.LocalDate;
  * @author Renz
  */
 public class opret_bruger extends javax.swing.JFrame {
+
     ControllerImpl c = new ControllerImpl();
     private static int count = 0;
 
@@ -253,7 +254,7 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean active = "active".equalsIgnoreCase(str_status);
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
-       
+
         c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
@@ -271,8 +272,8 @@ public class opret_bruger extends javax.swing.JFrame {
         this.setVisible(false);    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-            new forside().setVisible(true);
-            this.setVisible(false);
+        new forside().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
