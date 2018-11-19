@@ -16,7 +16,6 @@ import java.time.LocalDate;
  */
 public class opret_bruger extends javax.swing.JFrame {
     ControllerImpl c;
-    private static int count = 0;
     private final DataHandling d;
 
     /**

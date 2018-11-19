@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class DataHandling {
 
-    //Flyttes til medlemscontroller
     private ArrayList<User> members = new ArrayList<>();
     private int id;
     
