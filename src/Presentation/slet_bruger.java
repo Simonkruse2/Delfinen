@@ -46,14 +46,8 @@ public class slet_bruger extends javax.swing.JFrame {
             rowData[8] = c.readMemberList().get(i).getMemberSince();
             rowData[9] = c.readMemberList().get(i).getDiscipline();
             model.addRow(rowData);
-            for (int j = 0; j < c.readMemberList().size(); j++) {
-                if(c.readMemberList().get(i).getName().equals(null)){
-                    model.removeRow(j);
-                }
-            }
 
         }
-        
 
     }
 

@@ -251,7 +251,7 @@ public class opret_bruger extends javax.swing.JFrame {
             discipline = null;
         }
         
-        int ID = ++count;
+        int ID = c.readID() + 1;
         String name = Name.getText();
         String birthdate = Birthdate.getText();
         String phonenumber = Phonenumber.getText();
@@ -262,6 +262,7 @@ public class opret_bruger extends javax.swing.JFrame {
         String memberSince = LocalDate.now().toString();
        
         c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+        c.writeID(ID);
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
     private void BirthdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BirthdateActionPerformed

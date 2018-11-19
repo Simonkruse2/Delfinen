@@ -11,4 +11,7 @@ public interface Controller {
     public ArrayList<User> readMemberList();
     
     public void sletBruger(int ID);
+    
+    public int readID();
+    public void writeID(int ID);
 }

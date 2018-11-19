@@ -19,11 +19,6 @@ public class ControllerImpl implements Controller {
     public void opretBruger(int ID, String name, String birthdate, String phonenumber, 
             String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
         User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
-//        if (user.isElite()) {
-//            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
-//        } else {
-//            user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, null);
-//        }
         d.addUser(user);
         f.writeObject(d.getMembers());
     }
@@ -34,7 +29,15 @@ public class ControllerImpl implements Controller {
         for (int i = 0; i < d.getMembers().size(); i++) {
             Object get = d.getMembers().get(i).getID();
             if (d.getMembers().get(i).getID() == ID) {
-                d.getMembers().remove(i);
+                d.getMembers().get(i).setName(null);
+                d.getMembers().get(i).setBirthdate(null);
+                d.getMembers().get(i).setPhonenumber(null);
+                d.getMembers().get(i).setEmail(null);
+                d.getMembers().get(i).setElite(false);
+                d.getMembers().get(i).setActive(false);
+                d.getMembers().get(i).setCoach(false);
+                d.getMembers().get(i).setMemberSince(null);
+                d.getMembers().get(i).setDiscipline(null);
                 break;
             }
         }
@@ -45,4 +48,15 @@ public class ControllerImpl implements Controller {
     public ArrayList<User> readMemberList() {
        return f.readObject();
     }
+
+    @Override
+    public int readID() {
+       return f.readWithBufferedReader();
+    }
+
+    @Override
+    public void writeID(int ID) {
+        f.writeWithBufferedWriter(ID);
+    }
+    
 }

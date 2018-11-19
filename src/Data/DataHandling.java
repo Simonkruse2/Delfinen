@@ -6,9 +6,11 @@ public class DataHandling {
 
     //Flyttes til medlemscontroller
     private ArrayList<User> members = new ArrayList<>();
+    private int id;
     
     public DataHandling(){
         Filehandling f = new Filehandling();
+        id = f.readWithBufferedReader();
         members = f.readObject();
     }
 
@@ -23,7 +25,13 @@ public class DataHandling {
     public ArrayList<User> getMembers() {
         return members;
     }
+    
+    public int addID(){
+        return id;
+    }
 }
+
+
 //    
 //    public void removeOrder(){
 //        try{
