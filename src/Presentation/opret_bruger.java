@@ -251,6 +251,7 @@ public class opret_bruger extends javax.swing.JFrame {
         }
         
         int ID = c.readID() + 1;
+        
         String name = Name.getText();
         String birthdate = Birthdate.getText();
         String phonenumber = Phonenumber.getText();

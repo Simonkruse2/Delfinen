@@ -101,19 +101,20 @@ public class Filehandling {
     
     
         public int readWithBufferedReader() {
-            int str = 1;
+            String str;
         try {
             File file = new File(inFileID);
             FileReader fr = new FileReader(file);
             BufferedReader in = new BufferedReader(fr);
-            str = in.read();
             
+            str = in.readLine();
+            return Integer.parseInt(str);
         } catch (FileNotFoundException ex) {
             if(DEBUG) ex.printStackTrace();
         } catch (IOException ex) {
             if(DEBUG) ex.printStackTrace();
         }
-        return str;
+        return 0;
     } 
 
 }
