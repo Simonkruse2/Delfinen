@@ -27,6 +27,7 @@ public class rediger_bruger extends javax.swing.JFrame {
         c = new ControllerImpl(d);
         addRowToJTable();
     }
+
     public void addRowToJTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
@@ -268,9 +269,32 @@ public class rediger_bruger extends javax.swing.JFrame {
         this.Birthdate.setText(c.søgBruger(ID).getBirthdate());
         this.Phonenumber.setText(c.søgBruger(ID).getPhonenumber());
         this.Email.setText(c.søgBruger(ID).getEmail());
-        this.Status.setSelectedItem(c.søgBruger(ID).isActive());
-        this.Aktivitetsform.setAutoscrolls(c.søgBruger(ID).isElite());
-        this.svømmedisciplin.setSelectedItem(c.søgBruger(ID).getDiscipline());
+        if (c.søgBruger(ID).isActive()) {
+            this.Aktivitetsform.setSelectedIndex(0);
+        }
+        if (c.søgBruger(ID).isActive() == false) {
+            this.Aktivitetsform.setSelectedIndex(2);
+            this.svømmedisciplin.setVisible(false);
+            this.jLabel7.setVisible(false);
+        }
+        if (c.søgBruger(ID).isElite()) {
+            this.Status.setSelectedIndex(0);
+        }
+        if (c.søgBruger(ID).isElite() == false) {
+            this.Status.setSelectedIndex(1);
+        }
+        if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("butterfly")) {
+            this.svømmedisciplin.setSelectedIndex(1);
+        }
+        if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("crawl")) {
+            this.svømmedisciplin.setSelectedIndex(2);
+        }
+        if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("rygcrawl")) {
+            this.svømmedisciplin.setSelectedIndex(3);
+        }
+        if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("brystsvømning")) {
+            this.svømmedisciplin.setSelectedIndex(4);
+        }
         this.Coach.setSelected(c.søgBruger(ID).isCoach());
     }//GEN-LAST:event_jButton1ActionPerformed
 
