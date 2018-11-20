@@ -257,7 +257,7 @@ public class opret_bruger extends javax.swing.JFrame {
         String phonenumber = Phonenumber.getText();
         String email = Email.getText();
         boolean elite = "elite".equalsIgnoreCase(str_elite);
-        boolean active = "active".equalsIgnoreCase(str_status);
+        boolean active = "aktiv".equalsIgnoreCase(str_status);
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
        
