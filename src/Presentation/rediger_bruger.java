@@ -271,19 +271,19 @@ public class rediger_bruger extends javax.swing.JFrame {
         this.Email.setText(c.søgBruger(ID).getEmail());
         //Status aktiv/passiv
         if (c.søgBruger(ID).isActive()) {
-            this.Aktivitetsform.setSelectedIndex(0);
+            this.Status.setSelectedIndex(0);
         }
         if (c.søgBruger(ID).isActive() == false) {
-            this.Aktivitetsform.setSelectedIndex(1);
+            this.Status.setSelectedIndex(1);
         }
         //Aktivitetsform motionist/Konkurrencesvømmer
         if (c.søgBruger(ID).isElite() == false) {
-            this.Status.setSelectedIndex(1);
+            this.Aktivitetsform.setSelectedIndex(1);
             this.svømmedisciplin.setVisible(false);
             this.jLabel7.setVisible(false);
         }
         if (c.søgBruger(ID).isElite()) {
-            this.Status.setSelectedIndex(2);
+            this.Aktivitetsform.setSelectedIndex(2);
         }
         //Svømmedisciplin (butterfly/crawl/rygcrawl/brystsvømning)
         if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("butterfly")) {
