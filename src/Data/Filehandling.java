@@ -86,7 +86,7 @@ public class Filehandling {
         try {
             File file = new File(inFileID);
             out = new BufferedWriter(new FileWriter(file));
-            out.write(ID);
+            out.write(Integer.toString(ID));
             out.flush();
         } catch (IOException ex) {
             if(DEBUG) ex.printStackTrace();
@@ -106,8 +106,8 @@ public class Filehandling {
             File file = new File(inFileID);
             FileReader fr = new FileReader(file);
             BufferedReader in = new BufferedReader(fr);
-            
             str = in.readLine();
+          //  if("".equals(str)) return 0;
             return Integer.parseInt(str);
         } catch (FileNotFoundException ex) {
             if(DEBUG) ex.printStackTrace();
