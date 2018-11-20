@@ -242,8 +242,8 @@ public class opret_bruger extends javax.swing.JFrame {
     }//GEN-LAST:event_AktivitetsformActionPerformed
 
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
-        String str_status = this.Status.getSelectedItem().toString();
-        String str_elite = this.Aktivitetsform.getSelectedItem().toString();
+        String str_status = this.Aktivitetsform.getSelectedItem().toString();
+        String str_elite = this.Status.getSelectedItem().toString();
         String discipline = null;
         discipline = this.svømmedisciplin.getSelectedItem().toString();
         if(this.svømmedisciplin.getSelectedItem().toString().equalsIgnoreCase("vælg svømmedisciplin")){
