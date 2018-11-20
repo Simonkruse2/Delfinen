@@ -27,10 +27,10 @@ public class slet_bruger extends javax.swing.JFrame {
         initComponents();
         this.d = d;
         c = new ControllerImpl(d);
-        addRowToJTable();
+        addRowToJTableSletBruger();
     }
 
-    public void addRowToJTable() {
+    public void addRowToJTableSletBruger() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         Object rowData[] = new Object[10];
@@ -204,7 +204,7 @@ public class slet_bruger extends javax.swing.JFrame {
     private void sletBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sletBrugerActionPerformed
         int ID = Integer.parseInt(jTextField1.getText());
         c.sletBruger(ID);
-        addRowToJTable();
+        addRowToJTableSletBruger();
     }//GEN-LAST:event_sletBrugerActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

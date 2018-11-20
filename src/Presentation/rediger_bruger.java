@@ -7,6 +7,7 @@ package Presentation;
 
 import Data.DataHandling;
 import Logic.ControllerImpl;
+import com.sun.media.sound.ModelTransform;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,10 +26,10 @@ public class rediger_bruger extends javax.swing.JFrame {
         initComponents();
         this.d = d;
         c = new ControllerImpl(d);
-        addRowToJTable();
+        addRowToJTableSletBruger();
     }
 
-    public void addRowToJTable() {
+    public void addRowToJTableSletBruger() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         Object rowData[] = new Object[2];
@@ -36,9 +37,7 @@ public class rediger_bruger extends javax.swing.JFrame {
             rowData[0] = c.readMemberList().get(i).getID();
             rowData[1] = c.readMemberList().get(i).getName();
             model.addRow(rowData);
-
         }
-
     }
 
     /**
@@ -327,7 +326,8 @@ public class rediger_bruger extends javax.swing.JFrame {
         //Set svømmedisciplin (crawl/rygcrawl/butterfly/brystsvømning)
         c.søgBruger(ID).setDiscipline(this.svømmedisciplin.getSelectedItem().toString());
         c.søgBruger(ID).setCoach(this.Coach.isSelected());
-
+        addRowToJTableSletBruger();
+        
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
 
