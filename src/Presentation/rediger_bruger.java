@@ -6,6 +6,8 @@
 package Presentation;
 
 import Data.DataHandling;
+import Logic.ControllerImpl;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,6 +16,7 @@ import Data.DataHandling;
 public class rediger_bruger extends javax.swing.JFrame {
 
     private final DataHandling d;
+    ControllerImpl c;
 
     /**
      * Creates new form rediger_bruger
@@ -21,6 +24,20 @@ public class rediger_bruger extends javax.swing.JFrame {
     public rediger_bruger(DataHandling d) {
         initComponents();
         this.d = d;
+        c = new ControllerImpl(d);
+        addRowToJTable();
+    }
+    public void addRowToJTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        Object rowData[] = new Object[2];
+        for (int i = 0; i < c.readMemberList().size(); i++) {
+            rowData[0] = c.readMemberList().get(i).getID();
+            rowData[1] = c.readMemberList().get(i).getName();
+            model.addRow(rowData);
+
+        }
+
     }
 
     /**
@@ -42,18 +59,18 @@ public class rediger_bruger extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         Name = new javax.swing.JTextField();
-        Aktivitetsform = new javax.swing.JComboBox<>();
+        Aktivitetsform = new javax.swing.JComboBox<String>();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Birthdate = new javax.swing.JTextField();
-        svømmedisciplin = new javax.swing.JComboBox<>();
+        svømmedisciplin = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
         OpretBruger = new javax.swing.JButton();
         Phonenumber = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         Email = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        Status = new javax.swing.JComboBox<>();
+        Status = new javax.swing.JComboBox<String>();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
@@ -98,25 +115,29 @@ public class rediger_bruger extends javax.swing.JFrame {
 
         jLabel6.setText("Aktivitetsform");
 
-        Aktivitetsform.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vælg aktivitetsform", "motionist", "konkurrencesvømmer" }));
+        Aktivitetsform.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vælg aktivitetsform", "motionist", "konkurrencesvømmer" }));
 
         jLabel2.setText("Fødselsdato");
 
         jLabel7.setText("Svømmedisciplin");
 
-        svømmedisciplin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vælg svømmedisciplin", "Butterfly", "Crawl", "Rygcrawl", "Brystsvømning" }));
+        svømmedisciplin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vælg svømmedisciplin", "Butterfly", "Crawl", "Rygcrawl", "Brystsvømning" }));
 
         jLabel3.setText("Telefonnummer");
 
         OpretBruger.setText("Rediger bruger");
+        OpretBruger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpretBrugerActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Email");
 
         jLabel5.setText("Status");
 
-        Status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktiv", "passiv" }));
+        Status.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aktiv", "passiv" }));
 
-        jTextField1.setText("Skriv bruger id");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -238,17 +259,29 @@ public class rediger_bruger extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        // ID Text
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int ID = Integer.parseInt(this.jTextField1.getText());
+        this.Name.setText(c.søgBruger(ID).getName());
+        this.Birthdate.setText(c.søgBruger(ID).getBirthdate());
+        this.Phonenumber.setText(c.søgBruger(ID).getPhonenumber());
+        this.Email.setText(c.søgBruger(ID).getEmail());
+        this.Status.setSelectedItem(c.søgBruger(ID).isActive());
+        this.Aktivitetsform.setAutoscrolls(c.søgBruger(ID).isElite());
+        this.svømmedisciplin.setSelectedItem(c.søgBruger(ID).getDiscipline());
+        this.Coach.setSelected(c.søgBruger(ID).isCoach());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-            new forside(d).setVisible(true);
-            this.setVisible(false);
+        new forside(d).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
+        // redigerbruger
+    }//GEN-LAST:event_OpretBrugerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

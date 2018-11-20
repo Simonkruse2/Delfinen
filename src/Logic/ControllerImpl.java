@@ -50,5 +50,17 @@ public class ControllerImpl implements Controller {
     public void writeID(int ID) {
         f.writeWithBufferedWriter(ID);
     }
+
+    @Override
+    public User søgBruger(int ID) {
+        User user = null;
+        for (int i = 0; i < d.getMembers().size(); i++) {
+            if (d.getMembers().get(i).getID() == ID) {
+                user = d.getMembers().get(i);
+                break;
+            }
+        }
+        return user;
+    }
     
 }
