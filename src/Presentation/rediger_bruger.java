@@ -308,7 +308,26 @@ public class rediger_bruger extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void OpretBrugerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpretBrugerActionPerformed
-        // redigerbruger
+        int ID = Integer.parseInt(this.jTextField1.getText());
+        c.søgBruger(ID).setName(this.Name.getText());
+        c.søgBruger(ID).setBirthdate(this.Birthdate.getText());
+        c.søgBruger(ID).setPhonenumber(this.Phonenumber.getText());
+        c.søgBruger(ID).setEmail(this.Email.getText());
+        //Set status aktiv/passiv
+        if (this.Status.getSelectedItem().toString().equalsIgnoreCase("aktiv")) {
+            c.søgBruger(ID).setActive(true);
+        }
+        //Set Aktiitetsform vælg/ motionist/ konkurrencesvømmer
+        if (this.Aktivitetsform.getSelectedItem().toString().equalsIgnoreCase("konkurrencesvømmer")) {
+            c.søgBruger(ID).setElite(true);
+        }
+        if (this.Aktivitetsform.getSelectedItem().toString().equalsIgnoreCase("motionist")) {
+            c.søgBruger(ID).setElite(false);
+        }
+        //Set svømmedisciplin (crawl/rygcrawl/butterfly/brystsvømning)
+        c.søgBruger(ID).setDiscipline(this.svømmedisciplin.getSelectedItem().toString());
+        c.søgBruger(ID).setCoach(this.Coach.isSelected());
+
     }//GEN-LAST:event_OpretBrugerActionPerformed
 
 
