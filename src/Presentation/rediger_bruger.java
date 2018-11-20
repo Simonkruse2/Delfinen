@@ -104,7 +104,7 @@ public class rediger_bruger extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Rediger"
+                "ID", "Name"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
