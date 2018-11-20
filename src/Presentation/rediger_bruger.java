@@ -269,20 +269,23 @@ public class rediger_bruger extends javax.swing.JFrame {
         this.Birthdate.setText(c.søgBruger(ID).getBirthdate());
         this.Phonenumber.setText(c.søgBruger(ID).getPhonenumber());
         this.Email.setText(c.søgBruger(ID).getEmail());
+        //Status aktiv/passiv
         if (c.søgBruger(ID).isActive()) {
             this.Aktivitetsform.setSelectedIndex(0);
         }
         if (c.søgBruger(ID).isActive() == false) {
-            this.Aktivitetsform.setSelectedIndex(2);
+            this.Aktivitetsform.setSelectedIndex(1);
+        }
+        //Aktivitetsform motionist/Konkurrencesvømmer
+        if (c.søgBruger(ID).isElite() == false) {
+            this.Status.setSelectedIndex(1);
             this.svømmedisciplin.setVisible(false);
             this.jLabel7.setVisible(false);
         }
         if (c.søgBruger(ID).isElite()) {
-            this.Status.setSelectedIndex(0);
+            this.Status.setSelectedIndex(2);
         }
-        if (c.søgBruger(ID).isElite() == false) {
-            this.Status.setSelectedIndex(1);
-        }
+        //Svømmedisciplin (butterfly/crawl/rygcrawl/brystsvømning)
         if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("butterfly")) {
             this.svømmedisciplin.setSelectedIndex(1);
         }
@@ -295,6 +298,7 @@ public class rediger_bruger extends javax.swing.JFrame {
         if (c.søgBruger(ID).getDiscipline().equalsIgnoreCase("brystsvømning")) {
             this.svømmedisciplin.setSelectedIndex(4);
         }
+        //Coach true/false
         this.Coach.setSelected(c.søgBruger(ID).isCoach());
     }//GEN-LAST:event_jButton1ActionPerformed
 
