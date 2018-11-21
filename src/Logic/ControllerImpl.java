@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class ControllerImpl implements Controller {
 
-//    private ArrayList<User> list = new ArrayList<>();
     private Filehandling f = new Filehandling();
     private final DataHandling d;
 

@@ -107,7 +107,6 @@ public class Filehandling {
             FileReader fr = new FileReader(file);
             BufferedReader in = new BufferedReader(fr);
             str = in.readLine();
-          //  if("".equals(str)) return 0;
             return Integer.parseInt(str);
         } catch (FileNotFoundException ex) {
             if(DEBUG) ex.printStackTrace();
