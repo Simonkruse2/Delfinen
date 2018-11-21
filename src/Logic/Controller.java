@@ -1,6 +1,7 @@
 package Logic;
 
 import Data.User;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public interface Controller {
@@ -16,4 +17,6 @@ public interface Controller {
     public void writeID(int ID);
     public User søgBruger(int ID);
     public void redigerBruger();
+    public int calculateAge(LocalDate birthDate, LocalDate currentDate);
+    public double priceCalculator(int age, boolean active);
 }

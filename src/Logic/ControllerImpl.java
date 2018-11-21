@@ -3,6 +3,8 @@ package Logic;
 import Data.User;
 import Data.DataHandling;
 import Data.Filehandling;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public class ControllerImpl implements Controller {
@@ -66,5 +68,30 @@ public class ControllerImpl implements Controller {
         for (int i = 0; i < d.getMembers().size(); i++) {
             f.writeObject(d.getMembers());
         }
+    }
+
+    @Override
+    public int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+        if((birthDate != null) && (currentDate != null)){
+            return Period.between(birthDate, currentDate).getYears();
+        }
+        else{
+            return 0;
+        }
+    }
+
+    @Override
+    public double priceCalculator(int age, boolean active) {
+        double price = 0;
+        if(age < 18){
+            price = 1000;
+        }
+        if(age >= 18){
+            price = 1600;
+        }
+        if(age >= 60){
+            price = 1600 * 0.75;
+        }
+        return price;
     }
 }

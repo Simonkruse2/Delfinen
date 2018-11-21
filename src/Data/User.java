@@ -1,6 +1,8 @@
 package Data;
 
+import Logic.ControllerImpl;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class User implements Serializable {
 
@@ -14,6 +16,11 @@ public class User implements Serializable {
     private boolean coach;
     private String memberSince;
     private String discipline;
+    private int age;
+    private double price;
+    
+    private DataHandling d = new DataHandling();
+    private ControllerImpl c = new ControllerImpl(d);
 
     
     @Override
@@ -35,6 +42,16 @@ public class User implements Serializable {
         this.coach = coach;
         this.memberSince = memberSince;
         this.discipline = discipline;
+        this.age = c.calculateAge(LocalDate.MIN, LocalDate.MIN);
+        this.price = c.priceCalculator(age, active);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
       public void setDiscipline(String discipline) {
