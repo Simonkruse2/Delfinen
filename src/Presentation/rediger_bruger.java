@@ -7,7 +7,6 @@ package Presentation;
 
 import Data.DataHandling;
 import Logic.ControllerImpl;
-import com.sun.media.sound.ModelTransform;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -326,6 +325,7 @@ public class rediger_bruger extends javax.swing.JFrame {
         //Set svømmedisciplin (crawl/rygcrawl/butterfly/brystsvømning)
         c.søgBruger(ID).setDiscipline(this.svømmedisciplin.getSelectedItem().toString());
         c.søgBruger(ID).setCoach(this.Coach.isSelected());
+        c.redigerBruger();
         addRowToJTableSletBruger();
         
     }//GEN-LAST:event_OpretBrugerActionPerformed

@@ -15,4 +15,5 @@ public interface Controller {
     public int readID();
     public void writeID(int ID);
     public User søgBruger(int ID);
+    public void redigerBruger();
 }
