@@ -19,4 +19,8 @@ public interface Controller {
     public void redigerBruger();
     public int calculateAge(LocalDate birthDate, LocalDate currentDate);
     public double priceCalculator(int age, boolean active);
+    public void opretRestance(int ID, String name, String birthdate, String phonenumber, 
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline);
+    public ArrayList<User> readRestance();
+    public void sletRestance(int ID);
 }

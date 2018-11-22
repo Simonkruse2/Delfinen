@@ -74,10 +74,9 @@ public class ControllerImpl implements Controller {
 
     @Override
     public int calculateAge(LocalDate birthDate, LocalDate currentDate) {
-        if((birthDate != null) && (currentDate != null)){
+        if ((birthDate != null) && (currentDate != null)) {
             return Period.between(birthDate, currentDate).getYears();
-        }
-        else{
+        } else {
             return 0;
         }
     }
@@ -85,19 +84,49 @@ public class ControllerImpl implements Controller {
     @Override
     public double priceCalculator(int age, boolean active) {
         double price = 0;
-        if(!active){
+        if (!active) {
             price = 500;
             return price;
         }
-        if(age < 18){
+        if (age < 18) {
             price = 1000;
         }
-        if(age >= 18){
+        if (age >= 18) {
             price = 1600;
         }
-        if(age >= 60){
+        if (age >= 60) {
             price = 1600 * 0.75;
         }
         return price;
     }
+
+    @Override
+    public void opretRestance(int ID, String name, String birthdate, String phonenumber, String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
+        {
+            int age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
+            double price = priceCalculator(age, active);
+            User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price);
+            d.addUserRestance(user);
+            f.writeObjectRestance(d.getRestance());
+        }
+    }
+
+    @Override
+    public ArrayList<User> readRestance() {
+        return f.readObjectRestance();
+    }
+
+    @Override
+    public void sletRestance(int ID) {
+
+        for (int i = 0; i < d.getRestance().size(); i++) {
+            if (d.getRestance().get(i).getID() == ID) {
+                d.getRestance().remove(i);
+                break;
+            }
+            f.writeObjectRestance(d.getRestance());
+        }
+
+    }
+
 }

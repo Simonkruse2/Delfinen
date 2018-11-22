@@ -19,6 +19,8 @@ public class Filehandling {
     public static final boolean DEBUG = true;
     String inFilename = "members.txt";
     String outFilename = "members.txt";
+    String inFilenameRestance = "restance.txt";
+    String outFilenameRestance = "restance.txt";
     String inFileID = "id.txt";
 
     public void writeObject(ArrayList<User> members) {
@@ -57,6 +59,66 @@ public class Filehandling {
             ArrayList members =(ArrayList<User>) objectinputstream.readObject();
             
             return members;
+            
+        } catch (FileNotFoundException ex) {
+            if (DEBUG) {
+                ex.printStackTrace();
+            }
+        } catch (IOException ex) {
+            if (DEBUG) {
+                ex.printStackTrace();
+            }
+        } catch (ClassNotFoundException ex) {
+            if (DEBUG) {
+                ex.printStackTrace();
+            }
+        } finally {
+            try {
+                objectinputstream.close();
+            } catch (IOException ex) {
+                if (DEBUG) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return new ArrayList<User>();
+    }
+    public void writeObjectRestance(ArrayList<User> members) {
+        ObjectOutputStream out = null;
+        FileOutputStream fout = null;
+        try {
+            fout = new FileOutputStream(inFilenameRestance);
+            out = new ObjectOutputStream(fout);
+            out.writeObject(members);
+            out.flush();
+        } catch (FileNotFoundException ex) {
+            if (DEBUG) {
+                ex.printStackTrace();
+            }
+        } catch (IOException ex) {
+            if (DEBUG) {
+                ex.printStackTrace();
+            }
+        } finally {
+            try {
+                out.close();
+            } catch (IOException ex) {
+                if (DEBUG) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public ArrayList<User> readObjectRestance() {
+        ObjectInputStream objectinputstream = null;
+        try {
+            
+            FileInputStream file = new FileInputStream(outFilenameRestance);
+            objectinputstream = new ObjectInputStream(file);
+            ArrayList restance =(ArrayList<User>) objectinputstream.readObject();
+            
+            return restance;
             
         } catch (FileNotFoundException ex) {
             if (DEBUG) {
