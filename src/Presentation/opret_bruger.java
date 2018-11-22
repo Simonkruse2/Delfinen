@@ -272,6 +272,7 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
        
+        c.opretRestance(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
         c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
         c.writeID(ID);
     }//GEN-LAST:event_OpretBrugerActionPerformed
