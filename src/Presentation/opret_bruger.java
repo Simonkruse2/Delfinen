@@ -11,9 +11,12 @@ import Data.Filehandling;
 import java.time.LocalDate;
 
 /**
- *
- * @author Renz
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
  */
+
+
+
 public class opret_bruger extends javax.swing.JFrame {
     ControllerImpl c;
     private final DataHandling d;

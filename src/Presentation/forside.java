@@ -8,10 +8,13 @@ package Presentation;
 import Data.DataHandling;
 import javax.swing.JFrame;
 
+
 /**
- *
- * @author Renz
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
  */
+
+
 public class forside extends javax.swing.JFrame {
 
     private final DataHandling d;

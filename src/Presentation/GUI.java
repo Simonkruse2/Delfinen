@@ -8,8 +8,8 @@ package Presentation;
 import Data.DataHandling;
 
 /**
- *
- * @author simon
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
  */
 public class GUI extends javax.swing.JFrame {
 

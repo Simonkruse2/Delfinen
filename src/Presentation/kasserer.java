@@ -10,9 +10,11 @@ import Logic.ControllerImpl;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Renz
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
  */
+
+
 public class kasserer extends javax.swing.JFrame {
 
     private final DataHandling d;

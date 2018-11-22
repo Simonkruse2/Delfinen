@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Renz
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
  */
+
+
 import Logic.ControllerImpl;
 public class slet_bruger extends javax.swing.JFrame {
 

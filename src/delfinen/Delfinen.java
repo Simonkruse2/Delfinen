@@ -6,9 +6,11 @@
 package delfinen;
 
 /**
- *
- * @author simon
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
  */
+
+
 public class Delfinen {
 
 
