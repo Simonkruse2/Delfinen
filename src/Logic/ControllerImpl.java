@@ -19,7 +19,9 @@ public class ControllerImpl implements Controller {
     @Override
     public void opretBruger(int ID, String name, String birthdate, String phonenumber,
             String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
-        User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+        int age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
+        double price = priceCalculator(age, active);
+        User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price);
         d.addUser(user);
         f.writeObject(d.getMembers());
     }
@@ -83,6 +85,10 @@ public class ControllerImpl implements Controller {
     @Override
     public double priceCalculator(int age, boolean active) {
         double price = 0;
+        if(!active){
+            price = 500;
+            return price;
+        }
         if(age < 18){
             price = 1000;
         }

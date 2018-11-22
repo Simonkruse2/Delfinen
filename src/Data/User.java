@@ -1,8 +1,6 @@
 package Data;
 
-import Logic.ControllerImpl;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class User implements Serializable {
 
@@ -18,20 +16,16 @@ public class User implements Serializable {
     private String discipline;
     private int age;
     private double price;
-    
-    private DataHandling d = new DataHandling();
-    private ControllerImpl c = new ControllerImpl(d);
 
-    
     @Override
     public String toString() {
-        return   ID + "," + name + "," + birthdate
-                 + "," + phonenumber + "," + email + "," + memberSince
-                 + "," + elite + "," + coach + "," + active + "\n";
+        return ID + "," + name + "," + birthdate
+                + "," + phonenumber + "," + email + "," + memberSince
+                + "," + elite + "," + coach + "," + active + age + price + "\n";
     }
 
-    public User(int ID, String name, String birthdate, String phonenumber, 
-            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
+    public User(int ID, String name, String birthdate, String phonenumber,
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline, int age, double price) {
         this.ID = ID;
         this.name = name;
         this.birthdate = birthdate;
@@ -42,8 +36,8 @@ public class User implements Serializable {
         this.coach = coach;
         this.memberSince = memberSince;
         this.discipline = discipline;
-        this.age = c.calculateAge(LocalDate.MIN, LocalDate.MIN);
-        this.price = c.priceCalculator(age, active);
+        this.age = age;
+        this.price = price;
     }
 
     public int getAge() {
@@ -54,7 +48,7 @@ public class User implements Serializable {
         return price;
     }
 
-      public void setDiscipline(String discipline) {
+    public void setDiscipline(String discipline) {
         this.discipline = discipline;
     }
 
@@ -133,8 +127,5 @@ public class User implements Serializable {
     public void setMemberSince(String memberSince) {
         this.memberSince = memberSince;
     }
-
-
-
 
 }
