@@ -272,9 +272,10 @@ public class opret_bruger extends javax.swing.JFrame {
         if(this.svømmedisciplin.getSelectedItem().toString().equalsIgnoreCase("vælg svømmedisciplin")){
             discipline = null;
         }
-        
+        int age = 0;
+        double price = 0.0;
         int ID = c.readID() + 1;
-        
+        double time = 0.0;
         String name = Name.getText();
         String birthdate = Birthdate.getText();
         String phonenumber = Phonenumber.getText();
@@ -284,8 +285,10 @@ public class opret_bruger extends javax.swing.JFrame {
         boolean coach = Coach.isSelected();
         String memberSince = LocalDate.now().toString();
        
-        c.opretRestance(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
-        c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+        c.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, time);
+        c.opretRestance(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, time);
+        c.juniorOpretUserTeam(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price, time);
+        c.seniorOpretUserTeam(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price, time);
         c.writeID(ID);
     }//GEN-LAST:event_OpretBrugerActionPerformed
 

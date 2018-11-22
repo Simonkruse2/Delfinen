@@ -2,13 +2,11 @@ package Data;
 
 import java.io.Serializable;
 
-
 /**
- * 
- * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
+ *
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon
+ * Kristopher Kruse Bentzen.
  */
-
-
 public class User implements Serializable {
 
     private int ID;
@@ -23,6 +21,7 @@ public class User implements Serializable {
     private String discipline;
     private int age;
     private double price;
+    private double time = 0.0;
 
     @Override
     public String toString() {
@@ -47,7 +46,7 @@ public class User implements Serializable {
      * @param price
      */
     public User(int ID, String name, String birthdate, String phonenumber,
-            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline, int age, double price) {
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline, int age, double price, double time) {
         this.ID = ID;
         this.name = name;
         this.birthdate = birthdate;
@@ -60,180 +59,101 @@ public class User implements Serializable {
         this.discipline = discipline;
         this.age = age;
         this.price = price;
+        this.time = time;
     }
 
-    /**
-     *
-     * @return
-     */
+    public void setTime(double time) {
+        this.time = time;
+    }
+
+    public double getTime() {
+        return time;
+    }
+
     public int getAge() {
         return age;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getPrice() {
         return price;
     }
 
-    /**
-     *
-     * @param discipline
-     */
     public void setDiscipline(String discipline) {
         this.discipline = discipline;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getID() {
         return ID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getBirthdate() {
         return birthdate;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getPhonenumber() {
         return phonenumber;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     *
-     * @return
-     */
     public boolean isActive() {
         return active;
     }
 
-    /**
-     *
-     * @return
-     */
     public boolean isElite() {
         return elite;
     }
 
-    /**
-     *
-     * @return
-     */
     public boolean isCoach() {
         return coach;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMemberSince() {
         return memberSince;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDiscipline() {
         return discipline;
     }
 
-    /**
-     *
-     * @param ID
-     */
     public void setID(int ID) {
         this.ID = ID;
     }
 
-    /**
-     *
-     * @param name
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     *
-     * @param birthdate
-     */
     public void setBirthdate(String birthdate) {
         this.birthdate = birthdate;
     }
 
-    /**
-     *
-     * @param phonenumber
-     */
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;
     }
 
-    /**
-     *
-     * @param email
-     */
     public void setEmail(String email) {
         this.email = email;
     }
 
-    /**
-     *
-     * @param active
-     */
     public void setActive(boolean active) {
         this.active = active;
     }
 
-    /**
-     *
-     * @param elite
-     */
     public void setElite(boolean elite) {
         this.elite = elite;
     }
 
-    /**
-     *
-     * @param coach
-     */
     public void setCoach(boolean coach) {
         this.coach = coach;
     }
 
-    /**
-     *
-     * @param memberSince
-     */
     public void setMemberSince(String memberSince) {
         this.memberSince = memberSince;
     }

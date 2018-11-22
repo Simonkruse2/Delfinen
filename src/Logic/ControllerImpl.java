@@ -8,50 +8,43 @@ import java.time.Period;
 import java.util.ArrayList;
 
 /**
- * 
- * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon Kristopher Kruse Bentzen.
+ *
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon
+ * Kristopher Kruse Bentzen.
  */
-
 public class ControllerImpl implements Controller {
 
     private Filehandling f = new Filehandling();
     private final DataHandling d;
 
-    /**
-     *
-     * @param d
-     */
+
     public ControllerImpl(DataHandling d) {
         this.d = d;
     }
 
-    /**
-     *Opretter en burger ud fra .....
+  /**
+     *
      * @param ID
      * @param name
      * @param birthdate
      * @param phonenumber
      * @param email
-     * @param elite
-     * @param active
-     * @param coach
-     * @param memberSince
-     * @param discipline
+     * @param elite - Motionist vs konkurrencesvømmer.
+     * @param active - Aktivt eller passivt medlemskab.
+     * @param coach - træner eller ej.
+     * @param memberSince - Medlem siden dags dato for oprettelsen. Sættes efter LocalDate.now()
+     * @param discipline - Svømmedisciplin.
      */
     @Override
     public void opretBruger(int ID, String name, String birthdate, String phonenumber,
-            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
+            String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline, double time) {
         int age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
         double price = priceCalculator(age, active);
-        User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price);
+        User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price, time);
         d.addUser(user);
         f.writeObject(d.getMembers());
     }
 
-    /**
-     *
-     * @param ID
-     */
     @Override
     public void sletBruger(int ID) {
         for (int i = 0; i < d.getMembers().size(); i++) {
@@ -64,38 +57,23 @@ public class ControllerImpl implements Controller {
 
     }
 
-    /**
-     *
-     * @return
-     */
+
     @Override
     public ArrayList<User> readMemberList() {
         return f.readObject();
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public int readID() {
         return f.readWithBufferedReader();
     }
 
-    /**
-     *
-     * @param ID
-     */
+
     @Override
     public void writeID(int ID) {
         f.writeWithBufferedWriter(ID);
     }
 
-    /**
-     *
-     * @param ID
-     * @return
-     */
     @Override
     public User søgBruger(int ID) {
         User user = null;
@@ -108,9 +86,6 @@ public class ControllerImpl implements Controller {
         return user;
     }
 
-    /**
-     *
-     */
     @Override
     public void redigerBruger() {
         for (int i = 0; i < d.getMembers().size(); i++) {
@@ -118,12 +93,7 @@ public class ControllerImpl implements Controller {
         }
     }
 
-    /**
-     *
-     * @param birthDate
-     * @param currentDate
-     * @return
-     */
+
     @Override
     public int calculateAge(LocalDate birthDate, LocalDate currentDate) {
         if ((birthDate != null) && (currentDate != null)) {
@@ -133,12 +103,6 @@ public class ControllerImpl implements Controller {
         }
     }
 
-    /**
-     *
-     * @param age
-     * @param active
-     * @return
-     */
     @Override
     public double priceCalculator(int age, boolean active) {
         double price = 0;
@@ -165,36 +129,29 @@ public class ControllerImpl implements Controller {
      * @param birthdate
      * @param phonenumber
      * @param email
-     * @param elite
-     * @param active
-     * @param coach
-     * @param memberSince
-     * @param discipline
+     * @param elite - Motionist vs konkurrencesvømmer.
+     * @param active - Aktivt eller passivt medlemskab.
+     * @param coach - træner eller ej.
+     * @param memberSince - Medlem siden dags dato for oprettelsen. Sættes efter LocalDate.now()
+     * @param discipline - Svømmedisciplin.
      */
     @Override
-    public void opretRestance(int ID, String name, String birthdate, String phonenumber, String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
+    public void opretRestance(int ID, String name, String birthdate, String phonenumber, String email, boolean elite,
+            boolean active, boolean coach, String memberSince, String discipline, double time) {
         {
             int age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
             double price = priceCalculator(age, active);
-            User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price);
+            User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price, time);
             d.addUserRestance(user);
             f.writeObjectRestance(d.getRestance());
         }
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public ArrayList<User> readRestance() {
         return f.readObjectRestance();
     }
 
-    /**
-     *
-     * @param ID
-     */
     @Override
     public void sletRestance(int ID) {
 
@@ -209,13 +166,15 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public void juniorOpretUserTeam(int ID, String name, String birthdate, String phonenumber, String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
+    public void juniorOpretUserTeam(int ID, String name, String birthdate, String phonenumber, String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline, int age, double price, double time) {
         {
-            int age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
-            double price = priceCalculator(age, active);
-            User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price);
-            d.addUserJuniorTeam(user);
-            f.juniorWriteObjectTeams(d.getUserJuniorTeam());
+            age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
+            if (age < 18 && elite == true) {
+                price = priceCalculator(age, active);
+                User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price, time);
+                d.addUserJuniorTeam(user);
+                f.juniorWriteObjectTeams(d.getUserJuniorTeam());
+            }
         }
     }
 
@@ -223,41 +182,24 @@ public class ControllerImpl implements Controller {
     public ArrayList<User> juniorReadTeams() {
         return f.juniorReadObjectTeams();
     }
+
     @Override
-    public void juniorHoldOprettelse(ArrayList<User> juniorTeam) {
-        int juniorAge = 18;
-        for (int i = 0; i < d.getMembers().size(); i++) {
-            if (d.getMembers().get(i).getAge() < juniorAge && d.getMembers().get(i).isElite() == true) {
-                juniorTeam.add(d.getMembers().get(i));
+    public void seniorOpretUserTeam(int ID, String name, String birthdate, String phonenumber, String email, boolean elite,
+            boolean active, boolean coach, String memberSince, String discipline, int age, double price, double time) {
+        {
+            age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
+            if (age >= 18 && elite == true) {
+                price = priceCalculator(age, active);
+                User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price, time);
+                d.addUserSeniorTeam(user);
+                f.seniorWriteObjectTeams(d.getUserSeniorTeam());
             }
-        }
-        f.juniorWriteObjectTeams(juniorTeam);
-    }
-    @Override
-    public void seniorOpretUserTeam(int ID, String name, String birthdate, String phonenumber, String email, boolean elite, boolean active, boolean coach, String memberSince, String discipline) {
-    {
-            int age = calculateAge(LocalDate.parse(birthdate), LocalDate.now());
-            double price = priceCalculator(age, active);
-            User user = new User(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, age, price);
-            d.addUserJuniorTeam(user);
-            f.seniorWriteObjectTeams(d.getUserJuniorTeam());
         }
     }
 
     @Override
     public ArrayList<User> seniorReadTeams() {
         return f.seniorReadObjectTeams();
-    }
-
-    @Override
-    public void seniorHoldOprettelse(ArrayList<User> seniorTeam) {
-        int seniorAge = 18;
-        for (int i = 0; i < d.getMembers().size(); i++) {
-            if (d.getMembers().get(i).getAge() < seniorAge && d.getMembers().get(i).isElite() == true) {
-                seniorTeam.add(d.getMembers().get(i));
-            }
-        }
-        f.seniorWriteObjectTeams(seniorTeam);
     }
 
 }

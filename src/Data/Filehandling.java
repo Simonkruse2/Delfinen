@@ -25,15 +25,15 @@ public class Filehandling {
      * Pathdirectory to our .txt files.
      */
     public static final boolean DEBUG = true;
-    String inFilename = "members.txt";
-    String outFilename = "members.txt";
-    String inFilenameRestance = "restance.txt";
-    String outFilenameRestance = "restance.txt";
-    String inFilenameJuniorTeams = "juniorTeams.txt";
-    String outFilenameJuniorTeams = "juniorTeams.txt";
-    String inFilenameSeniorTeams = "seniorTeams.txt";
-    String outFilenameSeniorTeams = "seniorTeams.txt";
-    String inFileID = "id.txt";
+    private String inFilename = "members.txt";
+    private String outFilename = "members.txt";
+    private String inFilenameRestance = "restance.txt";
+    private String outFilenameRestance = "restance.txt";
+    private String inFilenameJuniorTeams = "juniorTeams.txt";
+    private String outFilenameJuniorTeams = "juniorTeams.txt";
+    private String inFilenameSeniorTeams = "seniorTeams.txt";
+    private String outFilenameSeniorTeams = "seniorTeams.txt";
+    private String inFileID = "id.txt";
 
     /**
      *
@@ -136,10 +136,7 @@ public class Filehandling {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+
     public ArrayList<User> readObjectRestance() {
         ObjectInputStream objectinputstream = null;
         try {
@@ -174,10 +171,6 @@ public class Filehandling {
         return new ArrayList<User>();
     }
 
-    /**
-     *
-     * @param ID
-     */
     public void writeWithBufferedWriter(int ID) {
         BufferedWriter out = null;
         try {
@@ -200,10 +193,7 @@ public class Filehandling {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+
     public int readWithBufferedReader() {
         String str;
         try {
@@ -251,10 +241,7 @@ public class Filehandling {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+
     public ArrayList<User> juniorReadObjectTeams() {
         ObjectInputStream objectinputstream = null;
         try {
@@ -316,10 +303,7 @@ public class Filehandling {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+
     public ArrayList<User> seniorReadObjectTeams() {
         ObjectInputStream objectinputstream = null;
         try {

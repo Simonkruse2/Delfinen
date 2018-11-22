@@ -33,31 +33,31 @@ public class konkurrence_hold extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         Object rowData[] = new Object[5];
-        for (int i = 0; i < c.readMemberList().size(); i++) {
-            rowData[0] = c.readMemberList().get(i).getID();
-            rowData[1] = c.readMemberList().get(i).getName();
-            rowData[2] = c.readMemberList().get(i).getBirthdate();
-            rowData[3] = c.readMemberList().get(i).getDiscipline();
-           
+        for (int i = 0; i < c.seniorReadTeams().size(); i++) {
+            rowData[0] = c.seniorReadTeams().get(i).getID();
+            rowData[1] = c.seniorReadTeams().get(i).getName();
+            rowData[2] = c.seniorReadTeams().get(i).getBirthdate();
+            rowData[3] = c.seniorReadTeams().get(i).getDiscipline();
+            rowData[4] = c.seniorReadTeams().get(i).getTime();
+
             model.addRow(rowData);
         }
     }
-    
-    public void addRowToJtableVisSvommerUnder18(){
+
+    public void addRowToJtableVisSvommerUnder18() {
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         model.setRowCount(0);
         Object rowData[] = new Object[5];
-                for (int i = 0; i < c.readMemberList().size(); i++) {
-            rowData[0] = c.readMemberList().get(i).getID();
-            rowData[1] = c.readMemberList().get(i).getName();
-            rowData[2] = c.readMemberList().get(i).getBirthdate();
-            rowData[3] = c.readMemberList().get(i).getDiscipline();
-           
+        for (int i = 0; i < c.juniorReadTeams().size(); i++) {
+            rowData[0] = c.juniorReadTeams().get(i).getID();
+            rowData[1] = c.juniorReadTeams().get(i).getName();
+            rowData[2] = c.juniorReadTeams().get(i).getBirthdate();
+            rowData[3] = c.juniorReadTeams().get(i).getDiscipline();
+            rowData[4] = c.juniorReadTeams().get(i).getTime();
             model.addRow(rowData);
-        
+
+        }
     }
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,6 +183,11 @@ public class konkurrence_hold extends javax.swing.JFrame {
         label1.setText("Vis brugernavn");
 
         jButton8.setText("Sæt tid");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Sæt tid");
 
@@ -318,7 +323,7 @@ public class konkurrence_hold extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -332,7 +337,7 @@ public class konkurrence_hold extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Under 18", jPanel1);
+        jTabbedPane1.addTab("Over 18", jPanel1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -486,10 +491,10 @@ public class konkurrence_hold extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Over 18", jPanel2);
+        jTabbedPane1.addTab("Under 18", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -556,8 +561,12 @@ public class konkurrence_hold extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new konkurrence_hold(d).setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

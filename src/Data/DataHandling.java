@@ -3,9 +3,8 @@ package Data;
 import java.util.ArrayList;
 
 /**
- *
- * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt & Simon
- * Kristopher Kruse Bentzen.
+ * 
+ * @author Renz Oliver De Chavez, Vincent Tran, Jacob Hildebrandt, Simon Kristopher Kruse Bentzen.
  */
 public class DataHandling {
 
@@ -15,16 +14,14 @@ public class DataHandling {
     private ArrayList<User> seniorTeam = new ArrayList<>();
     private int id;
 
-    /**
-     *
-     */
+    
     public DataHandling() {
         Filehandling f = new Filehandling();
         id = f.readWithBufferedReader();
         members = f.readObject();
         restance = f.readObjectRestance();
-//        juniorTeam = f.juniorReadObjectTeams();
-//        seniorTeam = f.seniorReadObjectTeams();
+        juniorTeam = f.juniorReadObjectTeams();
+        seniorTeam = f.seniorReadObjectTeams();
     }
 
     /**

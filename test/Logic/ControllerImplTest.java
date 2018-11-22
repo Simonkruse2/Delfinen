@@ -78,6 +78,7 @@ public class ControllerImplTest {
         boolean coach = false;
         String memberSince = "2018-11-16";
         String discipline = null;
+        Double time = 0.0;
 
         ArrayList<User> before = instance.readMemberList();
         System.out.println(before.size());
@@ -86,7 +87,7 @@ public class ControllerImplTest {
         System.out.println(after.size());
         assertEquals(before.size(), after.size());
         
-        instance.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline);
+        instance.opretBruger(ID, name, birthdate, phonenumber, email, elite, active, coach, memberSince, discipline, time);
         // TODO review the generated test code and remove the default call to fail.
     }
 }
